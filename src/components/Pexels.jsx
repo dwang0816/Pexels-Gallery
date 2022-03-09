@@ -75,6 +75,7 @@ const Pexels = () => {
     const storagedPage = JSON.parse(localStorage.getItem('currentPage'))
     setSearch(storagedSearch)
     if(!storagedSearch){
+      localStorage.setItem('currentPage', JSON.stringify(1))
       fetchData(storagedPage)
       // console.log("performed")
     } else {
