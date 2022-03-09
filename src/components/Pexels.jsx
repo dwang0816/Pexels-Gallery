@@ -3,11 +3,6 @@ import axios from 'axios'
 import './Pexels.scss';
 import Loader from "./Loader";
 
-
-
-// console.log(process.env.REACT_APP)
-
-
 const Pexels = () => {
 
   const [data, setData] = useState([]);
@@ -30,7 +25,6 @@ const Pexels = () => {
           "Authorization": `${process.env.REACT_APP_API_KEY}`,
         }
       })
-      // console.log(results)
       //set data here
       setData(results.data.photos)
     } catch (err) {
@@ -54,7 +48,6 @@ const Pexels = () => {
           "Authorization": `${process.env.REACT_APP_API_KEY}`
         }
       })
-        // console.log(results)
         //set data here
       setData(results.data.photos)
     } catch (err) {
@@ -88,7 +81,6 @@ const Pexels = () => {
     if(isLoading){
       return <Loader/>
     }
-    console.log(data)
     return data.map(item => {
       return (
         <div className="card" key={item.id} >
@@ -132,13 +124,10 @@ const Pexels = () => {
   const goNext = () => {
       if(!search){
         fetchData(currentPage + 1)
-        console.log('fetch')
       } else {
         fetchSearchData(currentPage+1, search)
-        console.log('search')
       }
       setCurrentPage(currentPage+1)
-      console.log("page is currently:", currentPage)
       localStorage.setItem('currentPage', JSON.stringify(currentPage+1))
   }
 
@@ -149,7 +138,6 @@ const Pexels = () => {
       fetchSearchData(currentPage-1, search)
     }
     setCurrentPage(currentPage-1)
-    console.log("page is currently:", currentPage)
     localStorage.setItem('currentPage', JSON.stringify(currentPage-1))
   }
 
