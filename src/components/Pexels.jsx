@@ -24,11 +24,6 @@ const Pexels = () => {
         statusCode: 200,
         headers:{
           // "Authorization": "",
-        },
-        params: {
-          //for visability purposes, can modify param
-          // 'page': `${currentPage}`,
-          // 'per_page': '10'
         }
       })
       // console.log(results)
@@ -77,10 +72,8 @@ const Pexels = () => {
     if(!storagedSearch){
       localStorage.setItem('currentPage', JSON.stringify(1))
       fetchData(storagedPage)
-      // console.log("performed")
     } else {
       fetchSearchData(storagedPage, storagedSearch)
-      // console.log("search is performed")
     }
   }, []
   )
@@ -125,8 +118,6 @@ const Pexels = () => {
 
   //handle submit
   const handleSubmit = async (event) => {
-    // const storagedPage = window.localStorage.getItem('currentPage', JSON.stringify(currentPage))
-    // const storagedSearch = window.localStorage.getItem('search', JSON.stringify(search))
     event.preventDefault()
     setIsError(false)
     setIsLoading(true)
@@ -158,12 +149,9 @@ const Pexels = () => {
     localStorage.setItem('currentPage', JSON.stringify(currentPage-1))
   }
 
-
-
   return (
     <div className="pexels-container">
       {renderError()}
-      {/* {console.log(data)} */}
       <form className="search-form">
         <input 
           value={JSON.parse(localStorage.getItem('search'))} 
