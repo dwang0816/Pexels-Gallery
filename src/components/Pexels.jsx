@@ -3,7 +3,7 @@ import axios from 'axios'
 import './Pexels.scss';
 import Loader from "./Loader";
 
-// import apikey from process.env.REACT_APP_API_KEY;
+import apikey from process.env.REACT_APP_API_KEY;
 
 console.log(process.env)
 
@@ -27,7 +27,7 @@ const Pexels = () => {
         method: 'GET',
         statusCode: 200,
         headers:{
-          "Authorization": "563492ad6f917000010000019c4fce7908044b17b037f6a7c80892fe",
+          "Authorization": {apikey},
         }
       })
       // console.log(results)
