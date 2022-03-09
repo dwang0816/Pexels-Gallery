@@ -3,9 +3,9 @@ import axios from 'axios'
 import './Pexels.scss';
 import Loader from "./Loader";
 
-import apikey from process.env.REACT_APP_API_KEY;
 
-console.log(process.env)
+
+// console.log(process.env.REACT_APP)
 
 
 const Pexels = () => {
@@ -27,7 +27,7 @@ const Pexels = () => {
         method: 'GET',
         statusCode: 200,
         headers:{
-          "Authorization": {apikey},
+          "Authorization": `${process.env.REACT_APP_API_KEY}`,
         }
       })
       // console.log(results)
