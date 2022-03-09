@@ -51,7 +51,7 @@ const Pexels = () => {
         method: 'GET',
         statusCode: 200,
         headers:{
-          // "Authorization": "",
+          "Authorization": `${process.env.REACT_APP_API_KEY}`
         }
       })
         // console.log(results)
